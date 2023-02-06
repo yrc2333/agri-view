@@ -1,0 +1,25 @@
+{
+  "name": "agriview-monorepo",
+  "description": "agriview-monorepo",
+  "private": true,
+  "scripts": {
+    "postinstall": "husky install && npx only-allow pnpm",
+    "dev": "pnpm -F form-site run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "agriview Team",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "less": "^4.1.3"
+  }
+}

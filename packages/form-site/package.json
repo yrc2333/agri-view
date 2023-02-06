@@ -1,0 +1,21 @@
+{
+  "name": "@agriview/form-site",
+  "private": false,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "start": "./index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@agriview/form-design": "workspace:^1.0.1",
+    "@agriview/form-generate": "workspace:^1.0.0",
+    "@arco-design/web-vue": "^2.42.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "vite": "^4.1.1"
+  }
+}

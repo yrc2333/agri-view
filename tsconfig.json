@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@agriview/*": ["packages/*/src"] // 按指定路径获取类型
+    },
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true
+  },
+  "include": ["packages/*"], // 只处理指定路径下的文件
+  "exclude": ["node_modules", "dist"]
+}
