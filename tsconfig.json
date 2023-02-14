@@ -13,7 +13,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@agriview/*": ["packages/*/src"] // 按指定路径获取类型
+      "@agri-view/*": ["packages/*/src"] // 按指定路径获取类型
     },
     "lib": ["es2020", "dom"],
     "skipLibCheck": true

@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-  import formDesign from "@agriview/form-design";
+  import formDesign from "@agri-view/form-design";
 </script>
 
 <style scoped lang="less"></style>

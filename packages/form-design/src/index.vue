@@ -50,7 +50,7 @@
   import areaRender from "./area-render/index.vue";
   import formSetup from "./area-setup/form-setup.vue";
   import formItemSetup from "./area-setup/form-item-setup.vue";
-  import formGenerate from "@agriview/form-generate";
+  import formGenerate from "@agri-view/form-generate";
 
   const emit = defineEmits(["onSave", "onPreview"]);
 

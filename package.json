@@ -1,13 +1,13 @@
 {
-  "name": "agriview-monorepo",
-  "description": "agriview-monorepo",
+  "name": "agri-view-monorepo",
+  "description": "agri-view-monorepo",
   "private": true,
   "scripts": {
     "postinstall": "npx only-allow pnpm",
     "dev": "pnpm -F form-site run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "agriview Team",
+  "author": "agri-view Team",
   "license": "MIT",
   "workspaces": [
     "packages/*"

@@ -1,5 +1,5 @@
 {
-  "name": "@agriview/form-design",
+  "name": "@agri-view/form-design",
   "private": false,
   "version": "0.0.1",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "dist"
   ],
   "dependencies": {
-    "@agriview/form-generate": "workspace:^0.0.1",
+    "@agri-view/form-generate": "workspace:^0.0.1",
     "@arco-design/web-vue": "^2.42.1",
     "vue": "^3.2.47",
     "vuedraggable": "^4.1.0"
