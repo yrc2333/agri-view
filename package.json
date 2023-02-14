@@ -3,7 +3,7 @@
   "description": "agriview-monorepo",
   "private": true,
   "scripts": {
-    "postinstall": "husky install && npx only-allow pnpm",
+    "postinstall": "npx only-allow pnpm",
     "dev": "pnpm -F form-site run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +13,12 @@
     "packages/*"
   ],
   "devDependencies": {
+    "vue": "^3.2.47",
+    "vite": "^4.1.1",
     "eslint": "^8.33.0",
-    "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "@vitejs/plugin-vue": "^4.0.0"
   },
   "dependencies": {
     "@types/node": "^18.11.18",

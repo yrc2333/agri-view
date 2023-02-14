@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "noImplicitAny": false,
     "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@agriview/*": ["packages/*/src"] // 按指定路径获取类型
     },
