@@ -7,6 +7,9 @@
   "scripts": {
     "build": "vite build --config vite.config.ts"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@agriview/form-generate": "workspace:^0.0.1",
     "@arco-design/web-vue": "^2.42.1",
