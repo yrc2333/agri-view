@@ -2,9 +2,11 @@
   "name": "agri-view-monorepo",
   "description": "agri-view-monorepo",
   "private": true,
+  "type": "module",
   "scripts": {
     "postinstall": "npx only-allow pnpm",
     "dev": "pnpm -F form-site run dev",
+    "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "agri-view Team",
@@ -16,6 +18,7 @@
     "@changesets/cli": "^2.26.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.33.0",
+    "execa": "^7.0.0",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "vite": "^4.1.1",
@@ -23,6 +26,7 @@
   },
   "dependencies": {
     "@types/node": "^18.11.18",
+    "chalk": "^5.2.0",
     "less": "^4.1.3"
   }
 }

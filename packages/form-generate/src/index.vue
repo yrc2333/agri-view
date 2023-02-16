@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-06 18:14:28
+ * @LastEditTime: 2023-02-16 17:50:05
 -->
 <template>
   <div class="form-generate">
@@ -68,6 +68,8 @@
       },
     },
   });
+
+  console.log(props.cusFormData);
 
   const formModel = reactive(
     Object.fromEntries(

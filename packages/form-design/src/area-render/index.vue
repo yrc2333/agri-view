@@ -2,7 +2,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-06 17:46:44
+ * @LastEditTime: 2023-02-16 17:56:59
 -->
 <template>
   <div class="area-render">
@@ -110,6 +110,7 @@
   import { ref, inject } from "vue";
   import draggable from "vuedraggable";
   import {
+    Space as ASpace,
     Form as AForm,
     Row as ARow,
     Col as ACol,
