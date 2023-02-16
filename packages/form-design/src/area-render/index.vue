@@ -2,7 +2,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-16 17:56:59
+ * @LastEditTime: 2023-02-16 18:09:27
 -->
 <template>
   <div class="area-render">
@@ -130,7 +130,6 @@
     const newIndex = evt.newIndex;
 
     const to = evt.to;
-    console.log(to);
 
     // 拖放目标是布局组件
     if (element) {

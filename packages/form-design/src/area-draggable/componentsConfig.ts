@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2022-12-16 10:46:37
- * @LastEditTime: 2023-02-06 13:40:43
+ * @LastEditTime: 2023-02-16 18:13:24
  */
 export const basicComponents = [
   {
@@ -24,29 +24,31 @@ export const basicComponents = [
     filedName: "",
     defaultValue: "",
     placeholder: "请选择",
-    options: [
-      {
-        label: "Option",
-        value: "Option 1",
-      },
-      {
-        label: "Option",
-        value: "Option 2",
-      },
-      {
-        label: "Option",
-        value: "Option 3",
-      },
-    ],
-    remote: {
-      url: "get_tree_list",
-      method: "get",
-      param: {},
-      optionMapping: {
-        id: "",
-        title: "",
-        value: "",
-        label: "",
+    options: {
+      staticOptions: [
+        {
+          label: "Option",
+          value: "Option 1",
+        },
+        {
+          label: "Option",
+          value: "Option 2",
+        },
+        {
+          label: "Option",
+          value: "Option 3",
+        },
+      ],
+      remoteOptions: {
+        url: "get_tree_list",
+        method: "get",
+        param: {},
+        optionMapping: {
+          id: "",
+          title: "",
+          value: "",
+          label: "",
+        },
       },
     },
   },
@@ -56,23 +58,25 @@ export const basicComponents = [
     filedName: "",
     defaultValue: "",
     placeholder: "请选择",
-    remote: {
-      url: "get_tree_list",
-      method: "get",
-      param: {},
-      optionMapping: "",
+    options: {
+      staticOptions: [
+        {
+          value: "Option 1",
+        },
+        {
+          value: "Option 2",
+        },
+        {
+          value: "Option 3",
+        },
+      ],
+      remoteOptions: {
+        url: "get_tree_list",
+        method: "get",
+        param: {},
+        optionMapping: "",
+      },
     },
-    options: [
-      {
-        value: "Option 1",
-      },
-      {
-        value: "Option 2",
-      },
-      {
-        value: "Option 3",
-      },
-    ],
   },
 ];
 

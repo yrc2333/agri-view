@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-06 14:26:49
+ * @LastEditTime: 2023-02-16 18:15:49
 -->
 <template>
   <div class="generate-item">
@@ -27,18 +27,22 @@
         v-model="dataModel"
         allow-clear
         :placeholder="itemConfig.placeholder"
-        :options="itemConfig.options"
-        :field-names="itemConfig.fieldNames"
+        :options="itemConfig.options.staticOptions"
+        :field-names="itemConfig?.fieldNames"
       />
       <a-tree-select
         v-if="itemConfig.type === 'treeSelect'"
         v-model="dataModel"
-        :data="props.itemConfig?.remote?.url ? remoteData : itemConfig.options"
+        :data="
+          props.itemConfig?.remote?.url
+            ? remoteData
+            : itemConfig.options.staticOptions
+        "
         :allow-search="true"
         :filter-tree-node="filterTreeNode"
         allow-clear
         :placeholder="itemConfig.placeholder"
-        :field-names="itemConfig.remote.optionMapping ?? undefined"
+        :field-names="itemConfig?.remote?.optionMapping ?? undefined"
         :selectable="itemConfig?.selectable ?? true"
       />
     </a-form-item>

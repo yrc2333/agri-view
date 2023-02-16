@@ -23,11 +23,6 @@
             v-model="element.defaultValue"
             :placeholder="element.placeholder"
           >
-            <a-option
-              v-for="item in element.options"
-              :key="item.value"
-              :value="item.label"
-            ></a-option>
           </a-select>
         </template>
 
