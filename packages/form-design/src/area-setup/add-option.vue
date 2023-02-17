@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2022-12-27 18:22:51
+ * @LastEditTime: 2023-02-17 09:54:07
 -->
 <template>
   <div class="add-option-box">
@@ -21,18 +21,12 @@
 </template>
 
 <script setup lang="ts">
-  import { reactive } from 'vue';
-  import {
-    Input as AInput,
-    Space as ASpace,
-    Button as AButton,
-    Row as ARow,
-  } from '@arco-design/web-vue';
-  import { IconDelete } from '@arco-design/web-vue/es/icon';
+  import { reactive } from "vue";
+  import { IconDelete } from "@arco-design/web-vue/es/icon";
 
   const opts = reactive([
-    { label: 'label1', value: 'value1' },
-    { label: 'label2', value: 'value2' },
+    { label: "label1", value: "value1" },
+    { label: "label2", value: "value2" },
   ]);
 
   const del = (index: any) => {
@@ -40,7 +34,7 @@
   };
 
   const add = () => {
-    opts.push({ label: '', value: '' });
+    opts.push({ label: "", value: "" });
   };
 </script>
 

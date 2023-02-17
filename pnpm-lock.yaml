@@ -63,6 +63,7 @@ importers:
       '@agri-view/form-generate': workspace:^1.0.0
       '@arco-design/web-vue': ^2.42.1
       '@vitejs/plugin-vue': ^4.0.0
+      unplugin-vue-components: ^0.22.12
       vite: ^4.1.1
       vue: ^3.2.47
     dependencies:
@@ -72,6 +73,7 @@ importers:
       vue: 3.2.47
     devDependencies:
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
+      unplugin-vue-components: 0.22.12_vue@3.2.47
       vite: 4.1.1
 
 packages:

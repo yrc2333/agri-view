@@ -65,7 +65,6 @@
 
 <script setup lang="ts">
   import { ref } from "vue";
-  import { Row as ARow } from "@arco-design/web-vue";
   import draggable from "vuedraggable";
   import { basicComponents, layoutComponents } from "./componentsConfig";
 

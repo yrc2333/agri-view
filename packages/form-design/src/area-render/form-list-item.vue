@@ -62,17 +62,6 @@
 
 <script setup lang="ts">
   import { inject } from "vue";
-  import {
-    FormItem as AFormItem,
-    TreeSelect as ATreeSelect,
-    Select as ASelect,
-    Option as AOption,
-    Input as AInput,
-    Row as ARow,
-    Col as ACol,
-    Space as ASpace,
-    Button as AButton,
-  } from "@arco-design/web-vue";
   import { IconCopy, IconDelete } from "@arco-design/web-vue/es/icon";
 
   defineProps<{

@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-16 17:54:10
+ * @LastEditTime: 2023-02-17 14:04:41
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -42,6 +42,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: resolve(__dirname, "./dist"),
     lib: {
       entry: resolve(__dirname, "./index.ts"),
       name: "form-generate",

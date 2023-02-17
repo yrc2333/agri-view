@@ -2,7 +2,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-16 18:09:27
+ * @LastEditTime: 2023-02-17 09:54:44
 -->
 <template>
   <div class="area-render">
@@ -109,13 +109,6 @@
 <script setup lang="ts">
   import { ref, inject } from "vue";
   import draggable from "vuedraggable";
-  import {
-    Space as ASpace,
-    Form as AForm,
-    Row as ARow,
-    Col as ACol,
-    Button as AButton,
-  } from "@arco-design/web-vue";
   import formListItem from "./form-list-item.vue";
   import { IconCopy, IconDelete } from "@arco-design/web-vue/es/icon";
 

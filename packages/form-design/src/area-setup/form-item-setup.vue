@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-20 14:53:51
- * @LastEditTime: 2022-12-27 20:00:13
+ * @LastEditTime: 2023-02-17 09:54:16
 -->
 <template>
   <div class="form-item-setup">
@@ -91,20 +91,11 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    FormItem as AFormItem,
-    Form as AForm,
-    Input as AInput,
-    Space as ASpace,
-    RadioGroup as ARadioGroup,
-    Radio as ARadio,
-    Switch as ASwitch,
-  } from '@arco-design/web-vue';
-  import { inject, ref } from 'vue';
-  import addOption from './add-option.vue';
+  import { inject, ref } from "vue";
+  import addOption from "./add-option.vue";
 
   const isStatiType = ref(true);
-  const customFormStore = inject('customFormStore') as any;
+  const customFormStore = inject("customFormStore") as any;
 </script>
 
 <style scoped lang="less"></style>

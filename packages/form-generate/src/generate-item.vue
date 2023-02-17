@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-16 18:15:49
+ * @LastEditTime: 2023-02-17 13:52:17
 -->
 <template>
   <div class="generate-item">
@@ -16,7 +16,9 @@
       validate-trigger="input"
       :label="itemConfig.label"
     >
-      <a-input
+      <component :is="asyncComponent(itemConfig.type)"></component>
+
+      <!-- <a-input
         v-if="itemConfig.type === 'input'"
         v-model="dataModel"
         allow-clear
@@ -44,27 +46,39 @@
         :placeholder="itemConfig.placeholder"
         :field-names="itemConfig?.remote?.optionMapping ?? undefined"
         :selectable="itemConfig?.selectable ?? true"
-      />
+      /> -->
     </a-form-item>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, watch, onMounted } from "vue";
-  import {
-    FormItem as AFormItem,
-    TreeSelect as ATreeSelect,
-    Select as ASelect,
-    Input as AInput,
-  } from "@arco-design/web-vue";
+  import { ref, watch, onMounted, defineAsyncComponent } from "vue";
   import axios from "axios";
 
   const props = defineProps<{
     itemConfig?: any;
-    value: any;
+    value?: any;
   }>();
 
   const remoteData = ref();
+
+  const asyncComponent = (cpnType) => {
+    let cpn;
+    switch (cpnType) {
+      case "input":
+        cpn = () => import("@arco-design/web-vue/es/input");
+        break;
+      case "select":
+        cpn = () => import("@arco-design/web-vue/es/select");
+        break;
+      case "treeSelect":
+        cpn = () => import("@arco-design/web-vue/es/tree-select");
+      default:
+        return;
+    }
+
+    return defineAsyncComponent(cpn);
+  };
 
   onMounted(async () => {
     const reqConfig = props.itemConfig.remote;

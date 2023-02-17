@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-23 18:08:25
- * @LastEditTime: 2023-02-06 17:29:29
+ * @LastEditTime: 2023-02-17 09:56:43
 -->
 <template>
   <div class="formRender">
@@ -39,13 +39,6 @@
 
 <script setup lang="ts">
   import { ref, reactive, provide } from "vue";
-  import {
-    Tabs as ATabs,
-    TabPane as ATabPane,
-    Button as AButton,
-    Space as ASpace,
-    Modal as AModal,
-  } from "@arco-design/web-vue";
   import areaDraggable from "./area-draggable/area-draggable.vue";
   import areaRender from "./area-render/index.vue";
   import formSetup from "./area-setup/form-setup.vue";
@@ -122,6 +115,7 @@
 
     .area-setup {
       flex: 1;
+      min-width: 400px;
     }
   }
 </style>

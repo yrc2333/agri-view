@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-03 17:34:19
+ * @LastEditTime: 2023-02-17 09:54:31
 -->
 <template>
   <div class="form-setup">
@@ -51,16 +51,9 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    FormItem as AFormItem,
-    RadioGroup as ARadioGroup,
-    Radio as ARadio,
-    InputNumber as AInputNumber,
-    Form as AForm,
-  } from '@arco-design/web-vue';
-  import { inject } from 'vue';
+  import { inject } from "vue";
 
-  const cusFormStore = inject('customFormStore') as any;
+  const cusFormStore = inject("customFormStore") as any;
 </script>
 
 <style scoped lang="less"></style>
