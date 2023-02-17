@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-17 09:30:24
+ * @LastEditTime: 2023-02-17 14:53:35
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -19,20 +19,7 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: [
-      {
-        find: "@",
-        replacement: resolve(__dirname, "../src"),
-      },
-      {
-        find: "vue",
-        replacement: "vue/dist/vue.esm-bundler.js", // compile template
-      },
-    ],
     extensions: [".ts", ".js"],
-  },
-  define: {
-    "process.env": {},
   },
   css: {
     preprocessorOptions: {

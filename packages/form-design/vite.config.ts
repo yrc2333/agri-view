@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-17 13:57:22
+ * @LastEditTime: 2023-02-17 14:53:23
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -21,9 +21,6 @@ export default defineConfig({
   resolve: {
     extensions: [".ts", ".js"],
   },
-  define: {
-    "process.env": {},
-  },
   css: {
     preprocessorOptions: {
       less: {
@@ -32,9 +29,19 @@ export default defineConfig({
     },
   },
   build: {
+    rollupOptions: {
+      external: [
+        "vue",
+        "@agri-view/form-generate",
+        "@arco-design/web-vue",
+        "vuedraggable",
+      ],
+    },
+    outDir: resolve(__dirname, "./dist"),
     lib: {
       entry: resolve(__dirname, "./index.ts"),
       name: "form-design",
+      fileName: "form-design",
     },
   },
 });

@@ -12,10 +12,5 @@
     "@agri-view/form-generate": "workspace:^1.0.0",
     "@arco-design/web-vue": "^2.42.1",
     "vue": "^3.2.47"
-  },
-  "devDependencies": {
-    "vite": "^4.1.1",
-    "unplugin-vue-components": "^0.22.12",
-    "@vitejs/plugin-vue": "^4.0.0"
   }
 }

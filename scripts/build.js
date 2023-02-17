@@ -1,9 +1,10 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-14 17:31:25
- * @LastEditTime: 2023-02-15 14:31:21
+ * @LastEditTime: 2023-02-17 15:41:13
  */
 import fs from "node:fs";
+import { rm } from "fs/promises";
 import { cpus } from "node:os";
 import path from "path";
 import { createRequire } from "node:module";
@@ -32,7 +33,7 @@ async function run() {
 }
 
 async function buildAll(targets) {
-  await runParallel(cpus().length, targets, build);
+  await runParallel(2, targets, build);
 }
 
 // 实现并行打包
@@ -41,10 +42,12 @@ async function runParallel(maxConcurrency, source, iteratorFn) {
   const executing = [];
   for (const item of source) {
     const p = Promise.resolve().then(() => iteratorFn(item, source));
+
     ret.push(p);
 
     if (maxConcurrency <= source.length) {
       const e = p.then(() => executing.splice(executing.indexOf(e), 1));
+
       executing.push(e);
       if (executing.length >= maxConcurrency) {
         await Promise.race(executing);
@@ -58,13 +61,9 @@ async function build(target) {
   const pkgDir = path.resolve(`packages/${target}`);
 
   // const pkg = require(`${pkgDir}/package.json`);
+  await rm(`${pkgDir}/dist`, { recursive: true, force: true });
 
-  // 编译前移除之前生成的产物
-  // await rm(`${pkgDir}/dist`, { recursive: true, force: true });
-
-  // -c 指使用配置文件 默认为rollup.config.js
-  // --environment 向配置文件传递环境变量 配置文件通过proccess.env.获取
-
+  // 在子进程中执行打包
   await execa("vite", ["build", "--config", `${pkgDir}/vite.config.ts`], {
     stdio: "inherit",
   });

@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-17 14:04:41
+ * @LastEditTime: 2023-02-17 14:52:51
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -19,20 +19,7 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: [
-      {
-        find: "@",
-        replacement: resolve(__dirname, "../src"),
-      },
-      {
-        find: "vue",
-        replacement: "vue/dist/vue.esm-bundler.js", // compile template
-      },
-    ],
     extensions: [".ts", ".js"],
-  },
-  define: {
-    "process.env": {},
   },
   css: {
     preprocessorOptions: {
@@ -42,10 +29,14 @@ export default defineConfig({
     },
   },
   build: {
+    rollupOptions: {
+      external: ["vue", "axios", "@arco-design/web-vue"],
+    },
     outDir: resolve(__dirname, "./dist"),
     lib: {
       entry: resolve(__dirname, "./index.ts"),
       name: "form-generate",
+      fileName: "form-generate",
     },
   },
 });

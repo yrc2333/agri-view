@@ -15,8 +15,5 @@
     "@arco-design/web-vue": "^2.42.1",
     "vue": "^3.2.47",
     "vuedraggable": "^4.1.0"
-  },
-  "devDependencies": {
-    "unplugin-vue-components": "^0.22.12"
   }
 }
