@@ -37,20 +37,15 @@ importers:
     specifiers:
       '@agri-view/form-generate': workspace:^1.0.0
       '@arco-design/web-vue': ^2.42.1
-      '@vitejs/plugin-vue': ^4.0.0
-      unplugin-vue-components: ^0.22.12
-      vite: ^4.0.0
+      lodash-es: ^4.17.21
       vue: ^3.2.47
       vuedraggable: ^4.1.0
     dependencies:
       '@agri-view/form-generate': link:../form-generate
       '@arco-design/web-vue': 2.42.1_vue@3.2.47
+      lodash-es: 4.17.21
       vue: 3.2.47
       vuedraggable: 4.1.0_vue@3.2.47
-    devDependencies:
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
-      unplugin-vue-components: 0.22.12_vue@3.2.47
-      vite: 4.1.1
 
   packages/form-generate:
     specifiers:
@@ -63,19 +58,12 @@ importers:
       '@agri-view/form-design': workspace:^1.0.0
       '@agri-view/form-generate': workspace:^1.0.0
       '@arco-design/web-vue': ^2.42.1
-      '@vitejs/plugin-vue': ^4.0.0
-      unplugin-vue-components: ^0.22.12
-      vite: ^4.0.0
       vue: ^3.2.47
     dependencies:
       '@agri-view/form-design': link:../form-design
       '@agri-view/form-generate': link:../form-generate
       '@arco-design/web-vue': 2.42.1_vue@3.2.47
       vue: 3.2.47
-    devDependencies:
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
-      unplugin-vue-components: 0.22.12_vue@3.2.47
-      vite: 4.1.1
 
 packages:
 
@@ -2246,6 +2234,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
@@ -3248,39 +3240,6 @@ packages:
     dependencies:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
-    dev: true
-
-  /vite/4.1.1:
-    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.16.17
-      postcss: 8.4.21
-      resolve: 1.22.1
-      rollup: 3.15.0
-    optionalDependencies:
-      fsevents: 2.3.2
     dev: true
 
   /vite/4.1.1_dprl76twtlijnqpm3fdjsbkzqm:

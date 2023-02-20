@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-16 17:50:05
+ * @LastEditTime: 2023-02-17 10:18:07
 -->
 <template>
   <div class="form-generate">
@@ -20,18 +20,16 @@
         :key="index"
       >
         <template v-if="originListItem.type === 'grid'">
-          <a-row
-            v-for="(rowItem, rowIndex) in originListItem.columns"
-            :key="rowIndex"
-          >
+          <a-row>
             <a-col
-              v-for="(colItem, colIndex) in rowItem.list"
-              :span="rowItem.span ?? 0"
+              v-for="(colItem, colIndex) in originListItem.columns"
+              :span="colItem.span ?? 0"
               :key="colIndex"
             >
               <generate-item
+                v-for="(formItem, index) in colItem.list"
                 v-model:value="formModel[colItem.filedName]"
-                :item-config="colItem"
+                :item-config="formItem"
               ></generate-item>
             </a-col>
           </a-row>
@@ -49,11 +47,6 @@
 
 <script setup lang="ts">
   import { reactive, ref } from "vue";
-  import {
-    Form as AForm,
-    Row as ARow,
-    Col as ACol,
-  } from "@arco-design/web-vue";
   import generateItem from "./generate-item.vue";
 
   const props = defineProps({

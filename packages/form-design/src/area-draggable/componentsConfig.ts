@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2022-12-16 10:46:37
- * @LastEditTime: 2023-02-16 18:13:24
+ * @LastEditTime: 2023-02-20 17:34:42
  */
 export const basicComponents = [
   {
@@ -101,3 +101,5 @@ export const layoutComponents = [
     },
   },
 ];
+
+export const allComponents = [...basicComponents, layoutComponents];

@@ -3,6 +3,7 @@
   <a-form-item
     v-if="element"
     class="widget-view"
+    auto-label-width
     :class="{
       active: cusFormStore.selectWidget.key == element.key,
     }"

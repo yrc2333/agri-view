@@ -1,6 +1,6 @@
 {
   "name": "@agri-view/form-site",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "scripts": {
     "dev": "vite --config ./vite.config.ts",

@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-17 14:53:23
+ * @LastEditTime: 2023-02-20 16:56:55
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -10,6 +10,9 @@ import Components from "unplugin-vue-components/vite";
 import { ArcoResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig({
+  server: {
+    port: 7777,
+  },
   plugins: [
     vue(),
     Components({

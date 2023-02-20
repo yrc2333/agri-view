@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-14 17:31:25
- * @LastEditTime: 2023-02-17 15:41:13
+ * @LastEditTime: 2023-02-17 15:45:03
  */
 import fs from "node:fs";
 import { rm } from "fs/promises";
@@ -33,7 +33,7 @@ async function run() {
 }
 
 async function buildAll(targets) {
-  await runParallel(2, targets, build);
+  await runParallel(cpus().length, targets, build);
 }
 
 // 实现并行打包

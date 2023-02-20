@@ -2,7 +2,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-17 09:54:44
+ * @LastEditTime: 2023-02-20 17:46:00
 -->
 <template>
   <div class="area-render">
@@ -47,7 +47,7 @@
                           group: 'people',
                           ghostClass: 'ghost',
                         }"
-                        @add="handleWidgetAdd($event, element, colIndex)"
+                        @add="handleWidgetColAdd($event, element, colIndex)"
                       >
                         <template #item="{ element: secondEl }">
                           <form-list-item
@@ -111,42 +111,48 @@
   import draggable from "vuedraggable";
   import formListItem from "./form-list-item.vue";
   import { IconCopy, IconDelete } from "@arco-design/web-vue/es/icon";
+  import { cloneDeep } from "lodash-es";
 
   const formData = ref({});
 
   const cusFormStore = inject("customFormStore") as any;
 
-  function handleWidgetAdd(evt: any, element?: any, colIndex?: any) {
+  /**
+   * 处理往表单顶层托组件的情况
+   * @param evt
+   */
+  function handleWidgetAdd(evt: any) {
     //为拖拽到容器的元素添加唯一 key
     const key = Date.now();
     // 拖放到目标数组后的索引
     const newIndex = evt.newIndex;
 
-    const to = evt.to;
+    cusFormStore.widgetForm.list[newIndex] = {
+      ...cloneDeep(cusFormStore.widgetForm.list[newIndex]),
+      key,
+    };
+  }
 
-    // 拖放目标是布局组件
-    if (element) {
-      element.columns[colIndex].list[newIndex] = {
-        ...element.columns[colIndex].list[newIndex],
-        key,
-      };
-    } else {
-      cusFormStore.widgetForm.list[newIndex] = {
-        ...cusFormStore.widgetForm.list[newIndex],
-        options: {
-          ...cusFormStore.widgetForm.list[newIndex].options,
-        },
-        key,
-      };
-    }
+  /**
+   * 处理往布局组件中拖动的情况
+   * @param evt
+   * @param row
+   * @param colIndex
+   */
+  function handleWidgetColAdd(evt: any, row: any, colIndex?: any) {
+    const key = Date.now();
+    const newIndex = evt.newIndex;
+
+    row.columns[colIndex].list[newIndex] = {
+      ...cloneDeep(row.columns[colIndex].list[newIndex]),
+      key,
+    };
   }
 
   // 选中
   const handleSelectWidget = (element, list) => {
     cusFormStore.selectWidget = element;
     cusFormStore.selectList = list;
-
-    console.log(list);
   };
   // 复制
   const onCloneElement = (list) => {
@@ -162,11 +168,6 @@
   };
   // 删除
   const onDelElement = (valu) => {
-    console.log(
-      "%c [ valu ]-166",
-      "font-size:13px; background:pink; color:#bf2c9f;",
-      valu
-    );
     const toDelIndex = cusFormStore.selectList.findIndex(
       (item: any) => item.key === cusFormStore.selectWidget.key
     );
