@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-17 13:52:17
+ * @LastEditTime: 2023-02-20 17:51:52
 -->
 <template>
   <div class="generate-item">
@@ -17,36 +17,6 @@
       :label="itemConfig.label"
     >
       <component :is="asyncComponent(itemConfig.type)"></component>
-
-      <!-- <a-input
-        v-if="itemConfig.type === 'input'"
-        v-model="dataModel"
-        allow-clear
-        :placeholder="itemConfig.placeholder"
-      />
-      <a-select
-        v-if="itemConfig.type === 'select'"
-        v-model="dataModel"
-        allow-clear
-        :placeholder="itemConfig.placeholder"
-        :options="itemConfig.options.staticOptions"
-        :field-names="itemConfig?.fieldNames"
-      />
-      <a-tree-select
-        v-if="itemConfig.type === 'treeSelect'"
-        v-model="dataModel"
-        :data="
-          props.itemConfig?.remote?.url
-            ? remoteData
-            : itemConfig.options.staticOptions
-        "
-        :allow-search="true"
-        :filter-tree-node="filterTreeNode"
-        allow-clear
-        :placeholder="itemConfig.placeholder"
-        :field-names="itemConfig?.remote?.optionMapping ?? undefined"
-        :selectable="itemConfig?.selectable ?? true"
-      /> -->
     </a-form-item>
   </div>
 </template>

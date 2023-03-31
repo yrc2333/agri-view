@@ -2,108 +2,109 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-20 17:46:00
+ * @LastEditTime: 2023-03-30 09:05:22
 -->
 <template>
-  <div class="area-render">
-    <a-form
-      :model="formData"
-      :size="cusFormStore.widgetForm.config.size"
-      :layout="cusFormStore.widgetForm.config.layout"
+  <a-form
+    class="area-render"
+    auto-label-width
+    :model="formData"
+    :size="cusFormStore.widgetForm.config.size"
+    :layout="cusFormStore.widgetForm.config.layout"
+  >
+    <draggable
+      v-model="cusFormStore.widgetForm.list"
+      item-key="key"
+      class="area-render-list"
+      style="height: 100%"
+      v-bind="{
+        group: 'people',
+        ghostClass: 'ghost',
+      }"
+      @add="handleWidgetAdd"
     >
-      <draggable
-        v-model="cusFormStore.widgetForm.list"
-        item-key="key"
-        v-bind="{
-          group: 'people',
-          ghostClass: 'ghost',
-        }"
-        @add="handleWidgetAdd"
-      >
-        <template #item="{ element }">
-          <div style="width: 100%">
-            <!-- 栅格布局 -->
-            <template v-if="element.type === 'grid'">
-              <a-row
-                class="widget-view"
-                style="width: 100%"
-                @click.stop="
-                  handleSelectWidget(element, cusFormStore.widgetForm.list)
-                "
-              >
-                <a-col flex="1">
-                  <a-row>
-                    <a-col
-                      v-for="(col, colIndex) in element.columns"
-                      :key="colIndex"
-                      :span="col.span ?? 0"
-                    >
-                      <draggable
-                        v-model="col.list"
-                        :no-transition-on-drag="true"
-                        item-key="key"
-                        class="widget-view"
-                        v-bind="{
-                          group: 'people',
-                          ghostClass: 'ghost',
-                        }"
-                        @add="handleWidgetColAdd($event, element, colIndex)"
-                      >
-                        <template #item="{ element: secondEl }">
-                          <form-list-item
-                            :element="secondEl"
-                            @del-element="onDelElement(col.list)"
-                            @clone-element="onCloneElement(col.list)"
-                            @click.stop="handleSelectWidget(secondEl, col.list)"
-                          ></form-list-item>
-                        </template>
-                      </draggable>
-                    </a-col>
-                  </a-row>
-                </a-col>
-                <a-col flex="100px">
-                  <a-space v-if="cusFormStore.selectWidget.key == element.key">
-                    <!-- 操作 -->
-                    <a-button
-                      size="small"
-                      type="secondary"
-                      @click.stop="onCloneElement(element.list)"
-                    >
-                      <template #icon>
-                        <icon-copy />
-                      </template>
-                    </a-button>
-                    <a-button
-                      size="small"
-                      status="danger"
-                      type="primary"
-                      @click.stop="onDelElement(element.list)"
-                    >
-                      <template #icon>
-                        <icon-delete />
-                      </template>
-                    </a-button>
-                  </a-space>
+      <template #item="{ element }">
+        <div style="width: 100%">
+          <!-- 栅格布局 -->
+          <template v-if="element.type === 'grid'">
+            <div
+              class="widget-view"
+              @click.stop="
+                handleSelectWidget(element, cusFormStore.widgetForm.list)
+              "
+            >
+              <a-row :gutter="10" style="width: 100%">
+                <a-col
+                  v-for="(col, colIndex) in element.columns"
+                  :key="colIndex"
+                  :span="col.span ?? 0"
+                >
+                  <draggable
+                    v-model="col.list"
+                    :no-transition-on-drag="true"
+                    item-key="key"
+                    class="widget-view"
+                    v-bind="{
+                      group: 'people',
+                      ghostClass: 'ghost',
+                    }"
+                    @add="handleWidgetColAdd($event, element, colIndex)"
+                  >
+                    <template #item="{ element: secondEl }">
+                      <form-list-item
+                        :element="secondEl"
+                        @del-element="onDelElement(col.list)"
+                        @clone-element="onCloneElement(col.list)"
+                        @click.stop="handleSelectWidget(secondEl, col.list)"
+                      ></form-list-item>
+                    </template>
+                  </draggable>
                 </a-col>
               </a-row>
-            </template>
-            <!-- 无布局组件 -->
-            <template v-else>
-              <form-list-item
-                v-if="element && element.key"
-                :element="element"
-                @del-element="onDelElement(cusFormStore.widgetForm.list)"
-                @clone-element="onCloneElement(cusFormStore.widgetForm.list)"
-                @click.stop="
-                  handleSelectWidget(element, cusFormStore.widgetForm.list)
-                "
-              />
-            </template>
-          </div>
-        </template>
-      </draggable>
-    </a-form>
-  </div>
+
+              <div
+                class="widget-view-action"
+                v-if="cusFormStore.selectWidget.key == element.key"
+              >
+                <!-- 操作 -->
+                <a-button
+                  size="mini"
+                  type="secondary"
+                  @click.stop="onCloneElement(element.list)"
+                >
+                  <template #icon>
+                    <icon-copy />
+                  </template>
+                </a-button>
+                <a-button
+                  size="mini"
+                  status="danger"
+                  type="primary"
+                  @click.stop="onDelElement(element.list)"
+                >
+                  <template #icon>
+                    <icon-delete />
+                  </template>
+                </a-button>
+              </div>
+            </div>
+          </template>
+          <!-- 无布局组件 -->
+          <template v-else>
+            <form-list-item
+              v-if="element && element.key"
+              :element="element"
+              @del-element="onDelElement(cusFormStore.widgetForm.list)"
+              @clone-element="onCloneElement(cusFormStore.widgetForm.list)"
+              @click.stop="
+                handleSelectWidget(element, cusFormStore.widgetForm.list)
+              "
+            />
+          </template>
+        </div>
+      </template>
+    </draggable>
+  </a-form>
 </template>
 
 <script setup lang="ts">
@@ -151,6 +152,11 @@
 
   // 选中
   const handleSelectWidget = (element, list) => {
+    console.log(
+      "%c [ element ]-155",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+      element
+    );
     cusFormStore.selectWidget = element;
     cusFormStore.selectList = list;
   };
@@ -176,9 +182,13 @@
   };
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   .area-render {
     flex: 1;
     padding: 8px 12px;
+    overflow: auto;
+    .area-render-list {
+      height: 100%;
+    }
   }
 </style>

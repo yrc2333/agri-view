@@ -16,5 +16,9 @@
     "lodash-es": "^4.17.21",
     "vue": "^3.2.47",
     "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "json-editor-vue": "^0.10.5",
+    "vanilla-jsoneditor": "^0.16.1"
   }
 }

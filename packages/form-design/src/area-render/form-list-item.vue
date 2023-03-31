@@ -36,28 +36,24 @@
           </a-tree-select>
         </template>
       </a-col>
-
-      <a-col flex="100px">
-        <a-space v-if="cusFormStore.selectWidget.key == element.key">
-          <!-- 操作 -->
-          <a-button size="small" type="secondary" @click="cloneElement">
-            <template #icon>
-              <icon-copy />
-            </template>
-          </a-button>
-          <a-button
-            size="small"
-            status="danger"
-            type="primary"
-            @click="delElement"
-          >
-            <template #icon>
-              <icon-delete />
-            </template>
-          </a-button>
-        </a-space>
-      </a-col>
     </a-row>
+
+    <div
+      class="widget-view-action"
+      v-if="cusFormStore.selectWidget.key == element.key"
+    >
+      <!-- 操作 -->
+      <a-button size="mini" type="secondary" @click="cloneElement">
+        <template #icon>
+          <icon-copy />
+        </template>
+      </a-button>
+      <a-button size="mini" status="danger" type="primary" @click="delElement">
+        <template #icon>
+          <icon-delete />
+        </template>
+      </a-button>
+    </div>
   </a-form-item>
 </template>
 
@@ -115,16 +111,13 @@
     .widget-view-action {
       position: absolute;
       top: 0;
-      right: 2px;
+      right: 0;
       z-index: 9;
       display: flex;
-      align-items: center;
-      justify-items: center;
-      height: 100%;
-
-      .widget-view-icon {
-        cursor: pointer;
-      }
+      gap: 5px;
+      background-color: #409eff;
+      padding-left: 5px;
+      padding-bottom: 5px;
     }
 
     &:hover {

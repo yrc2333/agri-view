@@ -1,24 +1,22 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-09-21 16:25:06
- * @LastEditTime: 2023-02-17 10:18:07
+ * @LastEditTime: 2023-03-31 15:07:18
 -->
 <template>
   <div class="form-generate">
     <a-form
       ref="generatedForm"
       :model="formModel"
-      :size="cusFormData.config.size"
-      :label-align="cusFormData.config.labelPosition"
+      :size="formJson.config.size"
+      auto-label-width
+      :label-align="formJson.config.labelPosition"
       :style="{
-        width: cusFormData.config.width,
-        height: cusFormData.config.height,
+        width: formJson.config.width,
+        height: formJson.config.height,
       }"
     >
-      <template
-        v-for="(originListItem, index) in cusFormData.list"
-        :key="index"
-      >
+      <template v-for="(originListItem, index) in formJson.list" :key="index">
         <template v-if="originListItem.type === 'grid'">
           <a-row>
             <a-col
@@ -50,9 +48,17 @@
   import generateItem from "./generate-item.vue";
 
   const props = defineProps({
-    cusFormData: {
+    formJson: {
       type: Object,
-      default: () => ({}),
+      default: () => ({
+        list: [],
+        config: {
+          labelWidth: 100,
+          labelPosition: "right",
+          size: "small",
+          layout: "horizontal",
+        },
+      }),
     },
     value: {
       type: Object,
@@ -62,11 +68,9 @@
     },
   });
 
-  console.log(props.cusFormData);
-
   const formModel = reactive(
     Object.fromEntries(
-      props.cusFormData.list.map((item: any) => {
+      props.formJson.list.map((item: any) => {
         return [item.filedName, item.defaultValue];
       })
     )

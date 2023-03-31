@@ -1,7 +1,7 @@
 <!--
  * @Author: Yanc
  * @Date: 2022-12-05 16:37:04
- * @LastEditTime: 2023-02-17 09:54:31
+ * @LastEditTime: 2023-03-31 13:37:45
 -->
 <template>
   <div class="form-setup">
@@ -39,13 +39,13 @@
         </a-radio-group>
       </a-form-item>
 
-      <a-form-item field="labelWidth" label="标签宽度">
+      <!-- <a-form-item field="labelWidth" label="标签宽度">
         <a-input-number
           v-model="cusFormStore.widgetForm.config.labelWidth"
           mode="button"
           placeholder="please enter your username..."
         />
-      </a-form-item>
+      </a-form-item> -->
     </a-form>
   </div>
 </template>
@@ -56,4 +56,9 @@
   const cusFormStore = inject("customFormStore") as any;
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+  .form-setup {
+    height: calc(100% - 40px);
+    overflow: auto;
+  }
+</style>
