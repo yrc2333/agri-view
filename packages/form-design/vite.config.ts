@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-04 20:30:33
- * @LastEditTime: 2023-02-20 16:56:55
+ * @LastEditTime: 2023-03-31 15:29:30
  */
 import { resolve } from "path";
 import { defineConfig } from "vite";
@@ -38,6 +38,8 @@ export default defineConfig({
         "@agri-view/form-generate",
         "@arco-design/web-vue",
         "vuedraggable",
+        "vanilla-jsoneditor",
+        "json-editor-vue",
       ],
     },
     outDir: resolve(__dirname, "./dist"),
